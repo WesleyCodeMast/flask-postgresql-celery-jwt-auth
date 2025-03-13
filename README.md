@@ -28,11 +28,28 @@ Before you begin, ensure you hae the following installed:
     - Update the database connection settings in .env file.
     - Create a DB named 'db_telehealth'
 
-4. Navigate to the src directory and set the FLASK_APP environment variable:
+4. Set environment variable:
+    Create a .env file in root folder and edit like this.
+    ```bash
+    DEBUG=False
+    SECRET_KEY=XXXX
+    POSTGRES_USER=postgres
+    POSTGRES_PASSWORD=
+    POSTGRES_DB=db_telehealth
+    POSTGRES_HOST=localhost:5432
+    DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}/${POSTGRES_DB}
+    REDIS_URL=redis://localhost:6379/0
+    REDIS_HOST=localhost
+    REDIS_PORT=6379
+    REDIS_DB=0
+
+    Navigate to src directory and set the FLASK_APP environment variable.
+
     ```bash
     cd src
     export FLASK_APP=main.py
 
+    
 5. Run database migrations:
     ```bash
     cd src
