@@ -118,7 +118,6 @@ Before you begin, ensure you hae the following installed:
     - Headers:
     ```json
         Authorization: Bearer <_token>
-    ```json
     {
         "name":"example",
         "email":"example@gmail.com",
