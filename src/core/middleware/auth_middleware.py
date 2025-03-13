@@ -43,6 +43,6 @@ def token_required(f):
                 "error": "Unauthorized"
             }, 500
         
-        return f(current_user, *args, **kwargs)
+        return f(current_user.serialize(), *args, **kwargs)
     
     return decorated

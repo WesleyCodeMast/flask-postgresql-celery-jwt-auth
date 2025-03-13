@@ -6,10 +6,10 @@ from core.settings.app import app
 from users.router import auth_bp
 from patients.router import patient_bp
 
-app.register_blueprint(auth_bp)
-app.register_blueprint(patient_bp)
+app.register_blueprint(auth_bp, url_prefix='/api')
+app.register_blueprint(patient_bp, url_prefix='/api')
 
 @app.route("/")
 # @token_required
-def user():
-    return jsonify('Hello world !')
+def home():
+    return jsonify(message='Hello world !')

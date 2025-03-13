@@ -67,6 +67,12 @@ def get_patients(current_user):
     try:
         patient_repository = PatientRepository(sync=True)
         patients = patient_repository.find_all()
+        if len(patients) == 0:
+            return {
+                "message": "Successfuly retrieved all patients",
+                "data": []
+            }
+
         serialized_patients = [patient.serialize() for patient in patients]
         return {
             "message": "Successfuly retrieved all patients",

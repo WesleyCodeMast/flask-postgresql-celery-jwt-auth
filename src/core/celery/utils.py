@@ -3,7 +3,7 @@ import os
 
 def application_modules(black_list: list[str] = None) -> list[str]:
     if not black_list:
-        black_list = ['__pycache__', 'core']
+        black_list = ['__pycache__', 'core', '.pytest_cache', '.venv']
 
     modules = []
 
@@ -11,7 +11,8 @@ def application_modules(black_list: list[str] = None) -> list[str]:
         if not x.is_dir() or x.name in black_list:
             continue
         modules.append(x.name)
-
+    print('********************** here is auto discovered directories *************************')
+    print(modules)
     return modules
 
 
