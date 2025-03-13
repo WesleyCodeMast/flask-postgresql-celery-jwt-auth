@@ -29,19 +29,22 @@ Before you begin, ensure you hae the following installed:
     - Create a DB named 'db_telehealth'
 
 4. Navigate to the src directory and set the FLASK_APP environment variable:
+    ```bash
     cd src
     export FLASK_APP=main.py
 
 5. Run database migrations:
+    ```bash
     cd src
     flask db init
     flask db migrate
     flask db upgrade
 
-6. Run Redis server
+6. Run Redis server:
     Make sure your Redis server is running.
 
-7. Run Flask application
+7. Run Flask application:
+    ```bash
     cd src
     flask run
 
@@ -58,31 +61,33 @@ Before you begin, ensure you hae the following installed:
     - method: POST 
     - endpoint: localhost:5000/register
     - Request body
-    json:
+    ```json
     {
         "name":"example",
         "email":"xxx@xxx.com",
-        "password":"" #Should be at least 8 characters with upper and lower case letters, numbers and special characters
+        "password":""
     }
 
 2. Login
     - method: POST 
     - endpoint: localhost:5000/login
     - Request body
-    json:
+    ```json
     {
         "email":"xxx@xxx.com",
-        "password":"" #Should be at least 8 characters with upper and lower case letters, numbers and special characters
+        "password":"" 
     }
 
 3. Get Current User
     - method: GET 
     - endpoint: localhost:5000/current_user
     - Headers:
+    ```json
         Authorization: Bearer <_token>
 
 4. Create Patient
-    - ** POST ** localhost:5000/patients
+    - method: POST 
+    - endpoint: localhost:5000/patients
     - Headers:
         Authorization: Bearer <_token>
     - Request body:
@@ -94,19 +99,26 @@ Before you begin, ensure you hae the following installed:
     }
 
 5. Read Patient
-    - ** GET ** localhost:5000/patients/<id>
+    - method: GET
+    - endpoint: localhost:5000/patients/<id>
     - Headers:
+    ```json
         Authorization: Bearer <_token>
 
 6. Read Patients
-    - ** GET ** localhost:5000/patients
+    - method: GET
+    - endpoint: localhost:5000/patients
     - Headers:
+    ```json
         Authorization: Bearer <_token>
 
 7. Update Patient
-    - ** PUT ** localhost:5000/patients/<id>
+    - method: PUT
+    - endpoint: localhost:5000/patients/<id>
     - Headers:
+    ```json
         Authorization: Bearer <_token>
+    ```json
     {
         "name":"example",
         "email":"example@gmail.com",
@@ -115,6 +127,8 @@ Before you begin, ensure you hae the following installed:
 
 
 8. Delete Patient
-    - ** DELETE ** localhost:5000/patients/<id>
+    - method: DELETE 
+    - endpoint: localhost:5000/patients/<id>
     - Headers:
+    ```json
         Authorization: Bearer <_token>
